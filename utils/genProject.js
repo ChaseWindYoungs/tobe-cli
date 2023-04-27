@@ -95,6 +95,7 @@ class GenProject {
       // 4）模板使用提示
       console.log(`\r\nSuccessfully created project ${chalk.cyan(this.name)}`);
       console.log(`\r\n  cd ${chalk.cyan(this.name)}`);
+      console.log("  npm install\r\n");
       console.log("  npm run dev\r\n");
     }
   }
@@ -127,7 +128,7 @@ class GenProject {
           });
           resolve(true);
           spinner.stop(); // 停止
-          spinner.succeed("Project create succeed"); // 成功 ✔
+          spinner.succeed("Create succeed"); // 成功 ✔
         }
       });
     });
