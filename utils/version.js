@@ -17,10 +17,10 @@ function main() {
   if (args.length > 0) {
     if (args[0] === "major") {
       // 重大更新版本
-      version = version.split(".").fill(changeNum(args[1], 0), 0, 1).join(".");
+      version = version.split(".").fill(0).fill(changeNum(args[1], 0), 0, 1).join(".");
     } else if (args[0] === "minor") {
       // 主要更新版本
-      version = version.split(".").fill(changeNum(args[1], 1), 1, 2).join(".");
+      version = version.split(".").fill(0, 1).fill(changeNum(args[1], 1), 1, 2).join(".");
     } else {
       // 补丁更新版本
       version = version.split(".").fill(changeNum(args[1], 2), 2, 3).join(".");
