@@ -12,7 +12,8 @@
     "utils"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "release": "node utils/version.js && npm publish"
   },
   "author": {
     "name": "Sirius",
@@ -32,4 +33,3 @@
     "ora": "^5.4.1"
   }
 }
-
