@@ -1,12 +1,12 @@
 const { Command } = require("commander");
-const { getPackageIngo } = require("./file.js");
+const { getPackageInfo } = require("./file.js");
 const beforeCreate = require("./beforeCreate.js");
 const GenProject = require("./genProject");
 const chalk = require("chalk");
 const figlet = require("figlet");
 const path = require("path");
 
-const packageData = JSON.parse(getPackageIngo());
+const packageData = JSON.parse(getPackageInfo());
 const program = new Command();
 
 program.name(packageData.name);

@@ -1,7 +1,7 @@
 const path = require("path");
 const fs = require("fs");
 
-function getPackageIngo() {
+function getPackageInfo() {
   // const packPath = process.cwd();
   const packPath = path.join(__dirname, '../');
   const pName = 'package.json'
@@ -11,5 +11,5 @@ function getPackageIngo() {
 }
 
 module.exports = {
-  getPackageIngo
+  getPackageInfo
 }
