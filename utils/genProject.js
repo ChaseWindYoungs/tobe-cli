@@ -95,7 +95,7 @@ class GenProject {
       // 4）模板使用提示
       console.log(`\r\nSuccessfully created project ${chalk.cyan(this.name)}`);
       console.log(`\r\n  cd ${chalk.cyan(this.name)}`);
-      console.log("  npm install\r\n");
+      console.log("  npm install");
       console.log("  npm run dev\r\n");
     }
   }
