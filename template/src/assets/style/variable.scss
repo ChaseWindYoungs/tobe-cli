@@ -1,0 +1,135 @@
+// 项目scss变量文件
+
+// 主颜色与类型
+$white: var(--white);
+$info: var(--info);
+$red: var(--red);
+$primary: var(--primary);
+$warning: var(--warning);
+$danger: var(--danger);
+$success: var(--success);
+
+// 容器
+$background: var(--background); // 项目主流背景颜色
+$contentBoxBg: var(--contentBoxBg); 
+$contentBoxTopBg: var(--contentBoxTopBg); 
+$contentBoxTopTitleLine: var(--contentBoxTopTitleLine); 
+$contentBoxBorder: var(--contentBoxBorder); 
+$contextmenuBorder: var(--contextmenuBorder); 
+$contextmenuHoverBg: var(--contextmenuHoverBg); 
+$optHeadBg: var(--optHeadBg); // 详情顶部导航栏北京
+$caseLeftBg: var(--caseLeftBg);
+
+// 菜单
+$menu-active-bg: var(--menu-active-bg);
+$menuFontColor: var(--menuFontColor); // menu字体颜色
+$menuBgColor: var(--menuBgColor); // 菜单的背景颜色
+$activeMenuBgColor: var(--activeMenuBgColor); //选中菜单项的背景颜色
+$tabActiveFontColor: var(--tabActiveFontColor); // tab字体颜色
+
+// 文本
+$textColor: var(--textColor); // 文本颜色
+$tabFontColor: var(--tabFontColor); // tab字体颜色
+$activeFontColor: var(--activeFontColor); // 选中字体颜色
+$fontColor: var(--fontColor);
+$secFontColor: var(--secFontColor);
+$lineColor: var(--lineColor);
+$dis-font-color: var(--dis-font-color);
+
+
+// form, form-item
+$inputBg:var(--inputBg); //输入框背景
+$select-caret: var(--select-caret); 
+$select-dropdown-hover-selected: var(--select-dropdown-hover-selected);
+$input-focus: var(--input-focus);
+$input-disabled-bg: var(--input-disabled-bg);
+
+// table
+$tableHeadBg: var(--tableHeadBg);
+$tableRowHoverTdBg: var(--tableRowHoverTdBg); 
+$tableBorderColor: var(--tableBorderColor);
+$tableCellBg: var(--tableCellBg); 
+
+// dialog
+$dialogHeadBg: var(--dialogHeadBg); // 弹窗内容的标题背景颜色
+$dialogConBg: var(--dialogConBg); // 弹窗内容的背景颜色
+
+// 图表
+$chartBg: var(--chartBg);
+$chart-box-top-bg: var(--chart-box-top-bg); 
+
+// loading
+$loadingTopBd: var(--loadingTopBd);
+
+// message
+$messageListInfo: var(--messageListInfo);
+$messageGroupListHoverAndActive: var(--messageGroupListHoverAndActive);
+$messageSettingInfo: var(--messageSettingInfo);
+
+
+
+@mixin button-style($bgColor: $tabBgColor, $color: $tabFontColor, $borderColor: $tabFontColor) {
+  height: 34px;
+  padding: 6px 24px;
+  border-radius: 4px 4px 4px 4px;
+  font-size: 14px;
+  font-family: Microsoft YaHei-Regular, Microsoft YaHei;
+  background-color: $bgColor;
+  color: $color;
+  border: 1px solid $borderColor;
+  cursor: pointer;
+}
+
+@mixin empty($content: '这里空空如也') {
+  position: relative;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 400px;
+  height: 400px;
+  margin: 0 auto;
+  background: url('@/assets/images/empty.png') no-repeat center;
+  background-size: 100%;
+
+  &::before {
+    position: absolute;
+    display: inline-block;
+    bottom: 0;
+    font-size: 14px;
+    height: 20px;
+    width: 100%;
+    content: $content;
+    color: $info;
+    text-align: center;
+  }
+}
+
+@mixin loading($content: '数据同步中',$width: 140px) {
+  // border: 1px solid red;
+  width: $width;
+  position: relative;
+  &::before {
+    position: absolute;
+    content: $content;
+    height: 20px;
+    line-height: 20px;
+    width: 90px;
+    // border: 1px solid red;
+  }
+  &::after {
+    left: 110px;
+    content: '';
+    position: absolute;
+    border: 2px solid #f3f3f3;
+    border-top: 2px solid $loadingTopBd;
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+    animation: spin 2s linear infinite;
+  }
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}

@@ -3,6 +3,7 @@
 </template>
 <style lang="scss" scoped>
 .content{
-  padding: 20px
+  padding: 20px;
+  color: $primary;
 }
 </style>

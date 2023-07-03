@@ -1,0 +1,87 @@
+/* 
+  规则 ！！！
+  1、颜色是针对该主题下的主要的颜色，与其他主题无对应关系
+  2、除了颜色之外，都是对应在scss的变量中，需要与其他主题对应
+*/
+.root-theme-dark {
+  /* 颜色 */
+  --bg1: #101621;
+  --bg2: #203857;
+  --bg3: #080c12;
+  --bg4: #081522;
+  --grey1: #3b668a;
+  --grey2: #293545;
+  --grey3: #555555;
+
+  /* 主颜色与类型 */
+  --mainBg: #03080e;
+  --menuBg: #142031;
+  --contBg: #001A4E;
+  --borderColor: #0036A1;
+  --primary: #0072ff;
+  --warning: #fcac10;
+  --danger: #ed1c24;
+  --success: #21a84f;
+  --info: #999;
+  --white: #fff;
+  --red: #ed1c24;
+
+  /* 容器 */
+  --background: var(--mainBg);
+  --contentBoxBg: var(--mainBg);
+  --contentBoxTopBg: var(--menuBg);
+  --contentBoxTopTitleLine: var(--white);
+  --contentBoxBorder: var(--menuBg);
+  --contextmenuBorder: #263448;
+  --contextmenuHoverBg: rgba(0, 158, 255, 0.2);
+  --optHeadBg: var(--bg1);
+  --caseLeftBg: var(--background);
+
+  /* 菜单 */
+  --menu-active-bg: var(--bg2);
+  --menuFontColor: var(--white);
+  --menuBgColor: var(--menuBg);
+  --activeMenuBgColor: rgba(0, 158, 255, 0.2);
+  --tabActiveFontColor: var(--primary);
+
+  /* 文本 */
+  --textColor: var(--white);
+  --tabFontColor: var(--primary);
+  --activeFontColor: #0088dc;
+  --fontColor: #333;
+  --secFontColor: var(--grey1);
+  --lineColor: var(--grey2);
+  --dis-font-color: #9ea5ba;
+
+  /* form, form-item */
+  --inputBg: var(--bg3);
+  --select-caret: var(--grey1);
+  --select-dropdown-hover-selected: var(--grey2);
+  --input-focus: var(--grey1);
+  --input-disabled-bg: var(--bg3);
+
+  /* table */
+  --tableHeadBg: #192E40;
+  --tableRowHoverTdBg: var(--bg2);
+  --tableBorderColor: var(--menuBg);
+  --tableCellBg: var(--mainBg);
+
+  /* dialog */
+  --dialogHeadBg: var(--grey2);
+  --dialogConBg: #151e2d;
+
+
+  /* 图表 */
+  --chartBg: var(--bg2);
+  --chartBox: var(--bg1);
+  --countBg: var(--bg1);
+  --chart-box-top-bg: linear-gradient(90deg, #003c85 0%, rgba(16, 22, 33, 0) 54%, rgba(16, 22, 33, 0) 100%);
+
+  /* loading */
+  --loadingTopBd:var(--grey3);
+
+  /* message */
+  --messageListInfo: var(--info);
+  --messageGroupListHoverAndActive:rgba(0, 158, 255, 0.2);
+  --messageSettingInfo :var(--info);
+}

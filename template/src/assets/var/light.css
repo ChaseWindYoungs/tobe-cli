@@ -1,0 +1,88 @@
+/* 
+  规则 ！！！
+  1、颜色是针对该主题下的主要的颜色，与其他主题无对应关系
+  2、除了颜色之外，都是对应在scss的变量中，需要与其他主题对应
+*/
+.root-theme-light {
+
+  /* 颜色 */
+  --bg1: #002164;
+  --bg2: #203857;
+  --grey1: #555555;
+  --blue1: #509EFF;
+
+   /* 主颜色与类型 */
+  --mainBg: #001236;
+  --menuBg: #002979;
+  --contBg: #001A4E;
+  --borderColor: #0036A1;
+  --primary: #0072ff;
+  --warning: #fcac10;
+  --danger: #ed1c24;
+  --success: #21a84f;
+  --info: #999;
+  --white: #fff;
+  --red: #ed1c24;
+
+  /* 容器 */
+  --background: var(--mainBg);
+  --contentBoxBg: var(--contBg);
+  --contentBoxBg2: var(--bg1);
+  --contentBoxTopBg: var(--menuBg);
+  --contentBoxTopTitleLine: var(--white);
+  --contentBoxBorder: var(--borderColor);
+  --contextmenuBorder: #263448;
+  --contextmenuHoverBg: #var(--borderColor);
+  --optHeadBg: var(--bg1);
+  --caseLeftBg: var(--bg1);
+
+  /* 菜单 */
+  --menu-active-bg: var(--bg2);
+  --menuFontColor: var(--blue1);
+  --menuBgColor: var(--menuBg);
+  --activeMenuBgColor: var(--borderColor);
+  --tabActiveFontColor: var(--white);
+
+  /* 文本 */
+  --textColor: var(--white);
+  --tabFontColor: var(--primary);
+  --activeFontColor: #0088dc;
+  --fontColor: #333;
+  --secFontColor: #3b668a;
+  --lineColor: #293545;
+  --dis-font-color: #9ea5ba;
+  
+  /* form, form-item */
+  /* --inputBg: transparent; */
+  --inputBg: var(--menuBg);
+  --select-caret: var(--primary);
+  --select-dropdown-hover-selected: var(--borderColor);
+  --input-focus: var(--primary);
+  --input-disabled-bg: #244179;
+
+  /* table */
+  --tableHeadBg: var(--menuBg);
+  --tableRowHoverTdBg: var(--borderColor);
+  --tableBorderColor: var(--borderColor);
+  --tableCellBg: transparent;
+  --tableCellBg2: var(--contBg);
+  --tableCellBg3: var(--bg1);
+
+  /* dialog */
+  --dialogHeadBg: var(--borderColor);
+  --dialogConBg: var(--menuBg);
+
+  /* 图表 */
+  --chartBg: var(--bg2);
+  --chartBox: var(--contBg);
+  --countBg: var(--borderColor);
+  --chart-box-top-bg: linear-gradient(90deg, var(--primary) 0%, rgba(0, 90, 255, 0) 54%, rgba(0, 90, 255, 0) 100%);
+
+  /* loading */
+  --loadingTopBd: var(--grey1);
+
+  /* message */
+  --messageListInfo: var(--blue1);
+  --messageGroupListHoverAndActive:var(--borderColor);
+  --messageSettingInfo:var(--blue1);
+}
