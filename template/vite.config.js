@@ -147,7 +147,6 @@ export default defineConfig(({ mode }) => {
         },
         mangle: {
           toplevel: true, // 压缩全局作用域内的标识符
-          properties: true // 压缩对象中的属性名称
         }
       },
       cacheDir: '.vite'
