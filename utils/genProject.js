@@ -114,18 +114,19 @@ class GenProject {
           console.error(err);
           reject(false);
         } else {
-          const packagePath = path.join(this.targetDir, "/package.json"),
-            homePagePath = path.join(this.targetDir, "/src/pages/home/index.vue");
-          fs.readFile(packagePath, (err, file) => {
-            ejs.renderFile(packagePath, options).then((data) => {
-              fs.writeFileSync(packagePath, data);
+          const ejsPaths =[
+            '/package.json',
+            '/index.html',
+            '/src/pages/home/index.vue',
+          ]
+          ejsPaths.forEach(i => {
+            let _path = path.join(this.targetDir, i)
+            fs.readFile(_path, (err, file) => {
+              ejs.renderFile(_path, options).then((data) => {
+                fs.writeFileSync(_path, data);
+              });
             });
-          });
-          fs.readFile(homePagePath, (err, file) => {
-            ejs.renderFile(homePagePath, options).then((data) => {
-              fs.writeFileSync(homePagePath, data);
-            });
-          });
+          })
           resolve(true);
           spinner.stop(); // 停止
           spinner.succeed("Create succeed"); // 成功 ✔
