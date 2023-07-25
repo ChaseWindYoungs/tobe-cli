@@ -36,9 +36,13 @@ const changeThemeValue = (val) => {
   document.getElementsByTagName('html')[0].className = classArr.join(' ');
 };
 
+const getAssetsFile = (url) => {
+  return new URL(`../assets/${url}`, import.meta.url).href;
+};
 
 export {
   debounce,
   throttle,
-  changeThemeValue
+  changeThemeValue,
+  getAssetsFile
 };
