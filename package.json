@@ -1,6 +1,6 @@
 {
   "name": "tobe-cli",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "tobe FE project cli",
   "main": "index.js",
   "bin": {
