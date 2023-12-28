@@ -13,7 +13,7 @@
   ],
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1 ",
-    "release": "node utils/version.js && npm publish"
+    "release": "node utils/version.js"
   },
   "author": {
     "name": "Sirius",
