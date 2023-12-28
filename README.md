@@ -3,8 +3,9 @@
 
 # usage
 `tb-v` 测试安装，查看版本信息
-``
-`tb create xxxxxxxxx[YourProjectName]`
+
+`tb create xxxxxxxxx[YourProjectName]` 创建模板
+
 
 
 ## 可选模板
