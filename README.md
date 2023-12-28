@@ -1,6 +1,10 @@
 # tobe-cli 
 一个可以创建通用模板的脚手架
 
+# Install
+`npm i -g tobe-cli` 全局安装
+
+
 # usage
 `tb-v` 测试安装，查看版本信息
 
