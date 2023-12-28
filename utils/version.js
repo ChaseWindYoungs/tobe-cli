@@ -6,19 +6,19 @@ let packageData = JSON.parse(getPackageInfo());
 let version = packageData.version;
 function main() {
   const args = process.argv.slice(2);
-
+  console.log(process.argv)
   function changeNum(argNum, idx) {
     if (parseInt(version.split(".")[idx]) >= args[1]) {
       throw new Error("version number must bigger than now!");
       return;
     } else return argNum || parseInt(version.split(".")[idx]) + 1;
   }
-
+  console.log(args)
   if (args.length > 0) {
-    if (args[0] === "major") {
+    if (args[0] === "==major") {
       // 重大更新版本
       version = version.split(".").fill(0).fill(changeNum(args[1], 0), 0, 1).join(".");
-    } else if (args[0] === "minor") {
+    } else if (args[0] === "==minor") {
       // 主要更新版本
       version = version.split(".").fill(0, 1).fill(changeNum(args[1], 1), 1, 2).join(".");
     } else {

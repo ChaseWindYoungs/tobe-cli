@@ -1,6 +1,6 @@
 {
   "name": "tobe-cli",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "tobe FE project cli",
   "main": "index.js",
   "bin": {
@@ -12,8 +12,8 @@
     "utils"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "release": "node utils/version.js && npm publish"
+    "test": "echo \"Error: no test specified\" && exit 1  && npm publish",
+    "release": "node utils/version.js"
   },
   "author": {
     "name": "Sirius",
