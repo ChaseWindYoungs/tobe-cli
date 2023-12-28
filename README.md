@@ -2,32 +2,24 @@
 一个可以创建通用模板的脚手架
 
 # usage
+`tb-v` 测试安装，查看版本信息
+``
+`tb create xxxxxxxxx[YourProjectName]`
+
+
+## 可选模板
+#### common-vue3-template
+
+
+  通用的vue3模板，集成了vue3, vite, Element-plus, axios, pinia，以及一些基础的代理配置和组件
+
+#### back-manage-template
+
+  通用的vue3后台模板，集成了vue3, vite, Element-plus, axios, pinia，以及一些基础的代理配置和组件，可以保存基础配置，tag标签，以及缓存页面等功能
 
 ## 新增模板功能
-在 template 中存放的是生成的模板，
+v0.0.9之前是将代码集成在cli中
 
-如果有需要，可以在里面按照想要的方式进行功能的扩展，
+现在是通过选择你想要创建的项目类型，远程拉取github的仓库，
 
-建议功能升级后，自己在本地测试一下之后，再提交代码进行合并，最后可以尝试运行 版本升级的指令进行发布，
-
-后续会将前端的包管理器搭建起来，然后就可以发布在私网中（如果发布不成功，请联系仓库管理员）
-## 版本升级
-`npm run release xxx`
-
-版本升级，自动修改版本号，
-
-eg: 0.0.1
-
-npm run release: 自动升级 patch 补丁的版本号，+1  => 0.0.2 
-
-npm run release xxx: 自动升级 patch 补丁的版本号，+1  => 0.0.2 
-
-npm run release minor: 自动升级 minor 主要更新版本的版本号，+1  => 0.1.0  
-
-npm run release major: 自动升级 major 重大更新版本的版本号，+1  => 1.0.0 
-
-npm run release minor x: 自动升级 minor 主要更新版本的版本号，+x  => 0.x.0 
-
-npm run release major x: 自动升级 major 重大更新版本的版本号，+x  => x.0.0 
-
-
+仓库代码的升级与cli是分开的，后期可以增加多个模板，
