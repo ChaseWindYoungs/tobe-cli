@@ -1,15 +1,17 @@
-const axios = require("axios");
+// 通过 axios 处理请求
+const axios = require('axios')
 
-axios.interceptors.response.use((res) => {
+axios.interceptors.response.use(res => {
   return res.data;
-});
+})
+
 
 /**
- * 获取模板列表
+ * 获取项目的所有的分支
  * @returns Promise
  */
-async function getRepoList() {
-  return axios.get('https://api.github.com/orgs/xxx-git-repo-address/repos')
+async function getBranchList(repo) {
+  return axios.get(`https://api.github.com/repos/ChaseWindYoungs/${repo}/branches`)
 }
 
 /**
@@ -18,10 +20,10 @@ async function getRepoList() {
  * @returns Promise
  */
 async function  getTagList(repo) {
-  return axios.get(`https://api.github.com/repos/xxx-git-repo-address/${repo}/tags`);
+  return axios.get(`https://api.github.com/repos/ChaseWindYoungs/${repo}/tags`)
 }
 
 module.exports = {
-  getRepoList,
+  getBranchList,
   getTagList
 }

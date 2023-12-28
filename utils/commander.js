@@ -1,7 +1,10 @@
+/**
+ * cli触发基本的操作的命令行
+ */ 
 const { Command } = require("commander");
 const { getPackageInfo } = require("./file.js");
 const beforeCreate = require("./beforeCreate.js");
-const GenProject = require("./genProject");
+const GenProject = require("./genProject.js");
 const chalk = require("chalk");
 const figlet = require("figlet");
 const path = require("path");

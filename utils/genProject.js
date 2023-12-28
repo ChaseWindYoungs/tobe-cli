@@ -5,7 +5,6 @@ const chalk = require("chalk");
 const ora = require("ora");
 const inquirer = require("inquirer");
 const util = require("util");
-const { getRepoList, getTagList } = require("./http");
 const downloadGitRepo = require("download-git-repo"); // 不支持 Promise
 
 // 异步下载等待方法
@@ -19,12 +18,18 @@ async function loading(fn, message, ...args) {
     const result = await fn(...args);
     // 状态为修改为成功
     spinner.succeed("Get repo data success!");
-    return result;
+    return true;
   } catch (error) {
     // 状态为修改为失败
     spinner.fail("Request failed, please refetch ...");
+    return false;
   }
 }
+
+const repos = [
+  {name: '通用模板 ===> common-vue3-template', value: 'common-vue3-template'},
+  {name: '后台管理模板 ===> back-manage-template', value: 'back-manage-template'}
+]
 
 // 生成项目方法
 class GenProject {
@@ -34,66 +39,49 @@ class GenProject {
     // 创建位置
     this.targetDir = targetDir;
     this.message = "Waiting repo template";
+    // 改造 download-git-repo 支持 promise
+    this.downloadGitRepo = util.promisify(downloadGitRepo);
   }
 
   // 获取用户选择的模板
-  // 1）从远程拉取模板数据
-  // 2）用户选择自己新下载的模板名称
-  // 3）return 用户选择的名称
+  // 1）用户选择自己新下载的模板名称
+  // 2）return 用户选择的名称
 
   async getRepo(params) {
-    const repoList = await loading(getRepoList, "waiting fetch template");
-    if (!repoList) return;
-    // 过滤我们需要的模板名称
-    const repos = repoList.map((item) => item.name);
-    // 2）用户选择自己新下载的模板名称
     const { repo } = await inquirer.prompt({
       name: "repo",
       type: "list",
       choices: repos,
       message: "Please choose a template to create project",
     });
-
     // 3）return 用户选择的名称
     return repo;
   }
 
-  // 获取用户选择的版本
-  // 1）基于 repo 结果，远程拉取对应的 tag 列表
-  // 2）用户选择自己需要下载的 tag
-  // 3）return 用户选择的 tag
-
-  async getTag(repo) {
-    // 1）基于 repo 结果，远程拉取对应的 tag 列表
-    const tags = await loading(getTagList, "waiting fetch tag", repo);
-    if (!tags) return;
-
-    // 过滤我们需要的 tag 名称
-    const tagsList = tags.map((item) => item.name);
-
-    // 2）用户选择自己需要下载的 tag
-    const { tag } = await inquirer.prompt({
-      name: "tag",
-      type: "list",
-      choices: tagsList,
-      message: "Place choose a tag to create project",
-    });
-
-    // 3）return 用户选择的 tag
-    return tag;
+  // 下载远程模板
+  async download(repo, tag){
+    // 1）拼接下载地址
+    const requestUrl = `ChaseWindYoungs/${repo}`;
+    // 2）调用下载方法
+    const res = await loading(
+      this.downloadGitRepo, // 远程下载方法
+      'waiting download template', // 加载提示信息
+      requestUrl, // 参数1: 下载地址
+      path.resolve(process.cwd(), this.targetDir)) // 参数2: 创建位置
+    return res
   }
 
   // 核心创建逻辑
   async create() {
-    // // 1）获取模板名称
-    // const repo = await this.getRepo();
-    // // 2) 获取 tag 名称
-    // const tag = await this.getTag(repo);
-    // console.log("选择的项目是：repo=" + repo + "，tag=" + tag);
-    const res = await this.copyFiles(this.name);
-    if (res) {
-      // 4）模板使用提示
-      console.log(`\r\nSuccessfully created project ${chalk.cyan(this.name)}`);
+    // 1）获取想要的模板类型
+    const repo = await this.getRepo();
+    let name = repos.find(i => i.value === repo).name
+    console.log(`您选择的项目是: ${name}`);
+    // 3）下载模板到模板目录
+    const res = await this.download(repo)
+    // 4）模板使用提示
+    if(res) {
+      console.log(`\r\n  Successfully created project ${chalk.cyan(this.name)}`);
       console.log(`\r\n  cd ${chalk.cyan(this.name)}`);
       console.log("  npm install");
       console.log("  npm run dev\r\n");
